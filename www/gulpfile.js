@@ -36,7 +36,7 @@ gulp.task('scss', function() {
       this.emit('end');
   };
 
-  return gulp.src('scss/app.scss')
+  return gulp.src('scss/main.scss')
     .pipe(plumber({errorHandler: onError}))
     .pipe($.sass({
       includePaths: sassPaths,
@@ -48,7 +48,7 @@ gulp.task('scss', function() {
     }))
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(prefix())
-    .pipe(rename('app.css'))
+    .pipe(rename('main.css'))
     .pipe(gulp.dest('dist/css'))
     .pipe(reload({stream:true}))
     .pipe(cssmin())
