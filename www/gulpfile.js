@@ -1,4 +1,5 @@
 var gulp        = require('gulp'),
+    $           = require('gulp-load-plugins')(),
     sass        = require('gulp-sass'),
     rename      = require('gulp-rename'),
     cssmin      = require('gulp-minify-css'),
@@ -19,6 +20,10 @@ var gulp        = require('gulp'),
     notify      = require('gulp-notify');
     wrap        = require('gulp-wrap');
 
+var sassPaths = [
+  'bower_components/foundation-sites/scss',
+  'bower_components/motion-ui/src'
+];
 
 gulp.task('scss', function() {
     var onError = function(err) {
@@ -31,18 +36,25 @@ gulp.task('scss', function() {
       this.emit('end');
   };
 
-  return gulp.src('scss/main.scss')
+  return gulp.src('scss/app.scss')
     .pipe(plumber({errorHandler: onError}))
-    .pipe(sass())
+    .pipe($.sass({
+      includePaths: sassPaths,
+      outputStyle: 'compressed' // if css compressed **file size**
+    })
+      .on('error', $.sass.logError))
+    .pipe($.autoprefixer({
+      browsers: ['last 2 versions', 'ie >= 9']
+    }))
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(prefix())
-    .pipe(rename('main.css'))
+    .pipe(rename('app.css'))
     .pipe(gulp.dest('dist/css'))
     .pipe(reload({stream:true}))
     .pipe(cssmin())
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('dist/css'))
+    .pipe(gulp.dest('css'))
 });
 
 gulp.task('browser-sync', function() {
