@@ -54,7 +54,7 @@ gulp.task('scss', function() {
     .pipe(cssmin())
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('dist/css'))
 });
 
 gulp.task('browser-sync', function() {
