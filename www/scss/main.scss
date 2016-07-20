@@ -1,10 +1,17 @@
 @import 'base/base';
 @import 'settings';
 @import 'app';
+
 @import 'mixins';
+@import 'vars';
 
 @include font-face(National, "../fonts/NationalWeb-Bold");
+@include font-face(Tiempos, "../fonts/TiemposTextWeb-Regular");
+@include font-face(Founders, "../fonts/FoundersGroteskWeb-Medium");
+
+
 
 .test {
   font-family: 'National';
+  color: $dark-gray;
 }
