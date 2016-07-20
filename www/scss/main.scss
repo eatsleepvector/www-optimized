@@ -9,8 +9,39 @@
 @import 'mixins';
 @import 'vars';
 
+
+// =============================================================================
+// Global Styles
+// =============================================================================
+
 body {
 	background-color: $background-color;
+}
+
+h3 {
+	font-family: 'National';
+	color: $dark-gray;
+	@include type-setting(1);
+	margin-bottom: 0;
+}
+
+h4 {
+	font-family: 'Founders';
+	color: $dark-gray;
+	@include type-setting(-1);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+p {
+	font-family: 'Tiempos';
+	color: $dark-gray;
+	@include type-setting(0);
+}
+
+.divider {
+	border-bottom: 2px solid $pale-red;
+	margin: 70px 0;
 }
 
 // =============================================================================
@@ -49,17 +80,18 @@ nav li {
 // Homepage
 // =============================================================================
 
-.intro-paragraph {
+.intro-paragraph p {
 	font-family: 'National';
 	color: $dark-gray;
 	@include type-setting(4);
-}
-
-.intro-paragraph p {
 	margin-bottom: 25px;
 	padding: 0 15px;
 }
 
-.project-cover {
-	display: inline-block;
+.intro-paragraph p:last-child {
+	margin-bottom: 0;
+}
+
+.project-gallery {
+	margin-bottom: 50px;
 }
