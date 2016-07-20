@@ -65,3 +65,15 @@
   	font-size: type-scale($level);
   	line-height: line-height($level);
 }
+
+// =============================================================================
+// Clearfix
+// =============================================================================
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

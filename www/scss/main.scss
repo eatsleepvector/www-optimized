@@ -9,12 +9,51 @@
 @import 'mixins';
 @import 'vars';
 
+body {
+	background-color: $background-color;
+}
+
+// =============================================================================
+// Top Navigation
+// =============================================================================
+
+.logo {
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+
+.top-navigation {
+	margin: 50px 0;
+	@include clearfix;
+}
+
+nav {
+	float: right;
+	margin-top: 15px;
+	font-family: 'Founders';
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-decoration: none;
+	color: $dark-gray;
+	@include type-setting(-1);
+}
+
+nav li {
+	display: inline;
+	margin-left: 25px;
+}
+
 // =============================================================================
 // Homepage
 // =============================================================================
 
-.test {
+.intro-paragraph {
 	font-family: 'National';
 	color: $dark-gray;
 	@include type-setting(4);
+}
+
+.intro-paragraph p {
+	margin-bottom: 25px;
 }
