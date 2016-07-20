@@ -1,3 +1,10 @@
 @import 'base/base';
 @import 'settings';
 @import 'app';
+@import 'mixins';
+
+@include font-face(National, "../fonts/NationalWeb-Bold");
+
+.test {
+  font-family: 'National';
+}

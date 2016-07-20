@@ -126,4 +126,9 @@ gulp.task('layout', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['browser-sync', 'js', 'imgmin', 'layout', 'scss', 'watch']);
+gulp.task('fonts', function () {
+    return gulp.src('fonts/*')
+        .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('default', ['browser-sync', 'js', 'imgmin', 'layout', 'fonts', 'scss', 'watch']);
