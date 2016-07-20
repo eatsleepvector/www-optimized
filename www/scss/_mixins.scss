@@ -42,3 +42,26 @@
 		src: $src;
 	}
 }
+
+@include font-face(National, "../fonts/NationalWeb-Bold");
+@include font-face(Tiempos, "../fonts/TiemposTextWeb-Regular");
+@include font-face(Founders, "../fonts/FoundersGroteskWeb-Medium");
+
+// =============================================================================
+// Typescale
+// =============================================================================
+
+@function type-scale($level) {
+  	@return map-get(
+    	map-get($type-settings, $level), 'font-size');
+}
+
+@function line-height($level) {
+  	@return map-get(
+    	map-get($type-settings, $level), 'line-height');
+}
+
+@mixin type-setting($level) {
+  	font-size: type-scale($level);
+  	line-height: line-height($level);
+}
