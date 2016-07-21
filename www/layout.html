@@ -37,7 +37,7 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#">Work</a></li>
+                        <li><a data-scroll href=".project-gallery">Work</a></li>
                         <li><a href="#">Résumé</a></li>
                         <li><a href="#">Things</a></li>
                     </ul>
@@ -70,7 +70,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/what-input/what-input.js"></script>
     <script src="bower_components/foundation-sites/dist/foundation.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/j.js"></script>
     <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.2.0/scrollreveal.min.js"></script>
     <script>
       var coverReveal = {
@@ -80,6 +80,9 @@
       };
       window.sr = ScrollReveal();
       sr.reveal('.project-cover', coverReveal);
+    </script>
+    <script>
+      smoothScroll.init();
     </script>
   </body>
 </html>

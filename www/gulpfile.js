@@ -123,7 +123,7 @@ gulp.task('imgmin', function () {
 gulp.task('layout', function () {
   return gulp.src(['./**/*.html', '!./layout.html'])
     .pipe(wrap({src: './layout.html'}))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('fonts', function () {
