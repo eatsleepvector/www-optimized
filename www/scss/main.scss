@@ -43,12 +43,38 @@ p {
 	color: $dark-gray;
 }
 
-#{$a-tags} {
-	color: $dark-gray;
+a {
+	position: relative;
+	color: $peach;
 }
 
-#{$a-tags-hover} {
-	border-bottom: 2px solid $dark-gray;
+a:hover {
+	color: $peach;
+}
+
+a:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	left: 0;
+	bottom: -2px;
+	background-color: $peach;
+	visibility: hidden;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+a:hover:before {
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
+}
+
+img {
+	min-width: 100%;
 }
 
 .divider {
@@ -129,18 +155,16 @@ footer nav li {
 // =============================================================================
 
 .intro-paragraph p {
-	#{$a-tags} {
-		color: $peach;
-		border-bottom: 4px solid $peach;
-	}
-	#{$a-tags-hover} {
-		border-bottom: 4px dotted $peach;
-	}
 	@include type-setting(4);
 	font-family: 'National';
 	color: $dark-gray;
 	margin-bottom: 25px;
 	padding: 0 15px;
+}
+
+.intro-paragraph p > a:before {
+	height: 4px;
+	bottom: -4px;
 }
 
 .intro-paragraph p:last-child {
@@ -155,6 +179,57 @@ footer nav li {
 	margin-bottom: 70px;
 }
 
-.project-cover img:hover {
+.overlay {
+	position: relative;
+}
+
+.overlay a:before {
+	display: none;
+}
+
+.overlay:hover {
 	border: 4px solid $peach;
+}
+
+.overlay-text {
+	@include type-setting(1);
+	font-family: 'National';
+	color: $peach;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	text-align: center;
+	top: 50%;
+	z-index: 100;
+	opacity: 0;
+}
+
+.overlay-text:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	left: 0;
+	bottom: 0;
+	background-color: $peach;
+	visibility: hidden;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.overlay:hover .overlay-text:before {
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
+}
+
+.overlay:hover .overlay-text {
+	opacity: 1.0;
+}
+
+.overlay:hover img {
+	opacity: 0.1;
 }
