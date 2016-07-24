@@ -175,23 +175,30 @@ img {
 }
 
 header nav {
-	@include type-setting(-1);
-	float: right;
-	margin-top: 15px;
-	font-family: 'Founders';
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	text-decoration: none;
-	color: $dark-gray;
+	display: none;
 }
 
-header nav ul {
-	margin: 0;
-}
+@media screen and (min-width: 40em) {
+	header nav {
+		@include type-setting(-1);
+		display: block;
+		float: right;
+		margin-top: 15px;
+		font-family: 'Founders';
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		text-decoration: none;
+		color: $dark-gray;
+	}
 
-header nav li {
-	display: inline;
-	margin-left: 25px;
+	header nav ul {
+		margin: 0;
+	}
+
+	header nav li {
+		display: inline;
+		margin-left: 25px;
+	}
 }
 
 // =============================================================================
@@ -339,7 +346,7 @@ footer nav li {
 	.project-cover:last-child {
 		margin-bottom: 70px;
 	}
-	
+
 	.intro-paragraph p {
 		@include type-setting(2);
 		font-family: 'National';
