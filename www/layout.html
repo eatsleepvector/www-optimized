@@ -45,6 +45,13 @@
             </div>
         </div>
     </header>
+    <div class="shapes">
+      <div class="rectangle" id="one"><img src="img/rectangle.svg" alt=""/></div>
+      <div class="circle" id="two"><img src="img/circle.svg" alt=""/></div>
+      <div class="triangle" id="three"><img src="img/triangle.svg" alt=""/></div>
+      <div class="circle" id="four"><img src="img/circle.svg" alt=""/></div>
+      <div class="rectangle" id="five"><img src="img/rectangle.svg" alt=""/></div>
+    </div>
 
     <%= contents %>
 
@@ -72,6 +79,26 @@
     <script src="bower_components/foundation-sites/dist/foundation.js"></script>
     <script src="js/j.js"></script>
     <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.2.0/scrollreveal.min.js"></script>
+    <script>
+      function scroll() {
+
+        var offset = window.pageYOffset;
+        var one = document.getElementById('one');
+        var two = document.getElementById('two');
+        var three = document.getElementById('three');
+        var four = document.getElementById('four');
+        var five = document.getElementById('five');
+
+        one.style.marginTop = (offset / 10) + "px"
+        two.style.marginTop = (offset / 5) + "px"
+        three.style.marginTop = (offset / 8) + "px"
+        four.style.marginTop = (offset / 11) + "px"
+        five.style.marginTop = (offset / 7) + "px"
+
+      }
+
+      window.onscroll = scroll;
+    </script>
     <script>
       var coverReveal = {
         delay    : 300,
